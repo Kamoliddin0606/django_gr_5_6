@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+{{categories}}
+<ul>
+  <li><a class="active" href="{% url 'index' %}">Home</a></li>
+  {% for category in objects %}
+  <li><a href="#">{{category.title}}</a></li>
+  
+  {% endfor %}
+
+</ul>
+<div class="w3-container">
+  <h2>Photo Card</h2>
+{% for category in objects %}
+
+
+  
+
+  <div class="w3-card-4" style="width:50%; margin-top:40px;">
+    <img src="{{category.image.url}}" alt="{{category.title}}" style="width:10%">
+    <div class="w3-container w3-center">
+      <p>{{category.title}}</p>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+</body>
+</html>
