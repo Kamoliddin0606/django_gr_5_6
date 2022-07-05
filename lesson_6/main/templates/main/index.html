@@ -10,22 +10,23 @@
 <ul>
   <li><a class="active" href="{% url 'index' %}">Home</a></li>
   {% for category in objects %}
-  <li><a href="#">{{category.title}}</a></li>
+  <li><a href="{% url 'category' category.id %}">{{category.title}}</a></li>
   
   {% endfor %}
 
 </ul>
 <div class="w3-container">
   <h2>Photo Card</h2>
-{% for category in objects %}
+{% for product in products %}
 
 
   
 
   <div class="w3-card-4" style="width:50%; margin-top:40px;">
-    <img src="{{category.image.url}}" alt="{{category.title}}" style="width:10%">
+    <img src="{{product.image.url}}" alt="{{product.title}}" style="width:200px">
     <div class="w3-container w3-center">
-      <p>{{category.title}}</p>
+      <h3>{{product.title}}</h3>
+      <p>{{product.body}}</p>
     </div>
   </div>
 
